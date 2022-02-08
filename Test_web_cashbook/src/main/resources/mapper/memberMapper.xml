@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="global.sesoc.cashbook.dao.MemberMapper">
+
+	<!-- 회원 정보 저장 -->
+	<insert id="insertMember" parameterType="MemberVO">
+		insert into cashbook_member values (#{userid}, #{userpwd}) 
+	</insert>
+	
+	<!-- 회원 정보 조회 -->
+	<select id="selectMember" parameterType="string" resultType="MemberVO">
+		select * from cashbook_member where userid = #{userid} 
+	</select>
+
+</mapper>
+

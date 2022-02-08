@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias alias="MemberVO" type="global.sesoc.cashbook.vo.MemberVO"/>
+		<typeAlias alias="CashbookVO" type="global.sesoc.cashbook.vo.CashbookVO"/>
+		<typeAlias alias="TotalVO" type="global.sesoc.cashbook.vo.TotalVO"/>
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="mapper/memberMapper.xml"/>
+		<mapper resource="mapper/cashbookMapper.xml"/>
+	</mappers>
+</configuration>

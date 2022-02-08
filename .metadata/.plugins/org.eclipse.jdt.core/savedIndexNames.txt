@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+C:\SpringExamWeb\.metadata\.plugins\org.eclipse.jdt.core
+57410070.index
+3951798283.index

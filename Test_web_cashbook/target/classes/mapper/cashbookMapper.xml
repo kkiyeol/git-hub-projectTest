@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="global.sesoc.cashbook.dao.CashbookMapper">
+
+	<!-- 가계부 내역 저장 -->
+	<insert id="insert" parameterType="CashbookVO">
+		insert into cashbook_info (infonum, userid, type, memo, amount) 
+		values (cashbook_seq.nextval, #{userid}, #{type}, #{memo}, #{amount})
+	</insert>
+	
+	<!-- 가계부 내역 삭제 -->
+	<delete id="delete" parameterType="CashbookVO">
+		delete from cashbook_info where infonum = #{infonum} and userid = #{userid}
+	</delete>
+	
+	<!-- 전체 가계부 내역 조회 -->
+	<select id="select" parameterType="string" resultType="CashbookVO">
+		select
+			infonum
+			, userid
+			, type
+			, memo
+			, amount
+			, to_char(inputdate, 'yyyy.mm.dd') inputdate	
+		from 
+			cashbook_info 
+		where
+			userid = #{userid}
+		order by 
+			inputdate, infonum
+	</select>
+	
+	<!-- 연도별 통계 -->
+	<select id="total" parameterType="string" resultType="TotalVO">
+		select 
+			distinct to_char(inputdate, 'YYYY') year 
+			, nvl((select sum(amount) from cashbook_info 
+					where type='수입' and userid = 'aaa' 
+					and to_char(inputdate, 'YYYY') = to_char(tb.inputdate, 'YYYY')), 0) as totalin
+			, nvl((select sum(amount) from cashbook_info 
+					where type='지출' and userid='aaa' 
+					and to_char(inputdate, 'YYYY') = to_char(tb.inputdate, 'YYYY')), 0) as totalout
+		from 
+			cashbook_info tb
+		where
+			userid = #{userid}
+		order by
+			year
+	</select>
+</mapper>

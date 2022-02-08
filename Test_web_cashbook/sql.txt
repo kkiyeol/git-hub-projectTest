@@ -1,0 +1,21 @@
+-- cashbook 예제
+
+-- DML / DDL 명령문을 작성
+
+create table cashbook_member (
+    userid varchar2(20) primary key,
+    userpwd varchar2(20) not null
+);
+
+create table cashbook_info (
+    infonum number primary key,
+    userid varchar2(20) not null,
+    type varchar2(20) not null,
+    memo varchar2(1000) not null,
+    amount number default 0,
+    inputdate date default sysdate,
+    constraint cashbook_info_fk foreign key(userid)
+    references cashbook_member(userid) on delete cascade
+);
+
+create sequence cashbook_seq;
