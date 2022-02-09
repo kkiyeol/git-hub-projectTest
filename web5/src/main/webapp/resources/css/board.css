@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+h1 {
+	text-align: center;
+}
+
+.head{
+	display: inline-block;
+	width: 100%;
+}
+
+.head1{
+	display: inline-table;
+	width: 49%;
+	text-align: left;
+}
+.head2{
+	display: inline-table;
+	width: 49%;
+	text-align: right;
+}
+
+.maxNum{
+	display: inline;
+	color: red;
+	font-size: 5px;
+}
+.name1{
+	display: inline;
+}
+
+.container {
+	display: grid;
+	/* background-image: url('/web4/resources/images/office.jfif');
+	background-repeat : no-repeat;
+    background-size : cover; */
+	background-color: #F0F8FF;
+	grid-template-rows: repeat(auto-fill, minmax(25%, auto));
+	/* grid-template-rows: 1fr 1fr 1fr */
+	/* grid-template-rows: repeat(3, 1fr) */
+	/* grid-template-rows: 200px 1fr */
+	/* grid-template-rows: 100px 200px auto */
+	
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	row-gap: 10px;
+	column-gap: 10px;
+	
+}
+
+
+.item {
+	width: 285px;
+	/* width: auto; */
+	height: auto;
+	background-color: beige;
+	margin: 10px;
+	padding: 10px;
+	border-radius: 10px;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.listTable {
+	/* max-width: 100%; */
+/* 	min-width: 280px; */
+	width: 280px;
+	max-height: 100%;
+	margin: 5, 5, 10px;
+	background-color: white;	
+	/* border-bottom: 1px solid black; */
+    border-collapse: collapse;
+    border-radius: 10px;
+    /* overflow: hidden; */
+    text-overflow: ellipsis;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.listTable td {
+	padding: 5px;
+}
+
+pre {
+	max-width: 270px;
+	height: 70px;
+	/* text-overflow: ellipsis; */
+	overflow: auto;
+}
+
+.preSpace{
+	/* max-width: 270px;
+	word-break: break-all;	 */
+}

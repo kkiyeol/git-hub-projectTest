@@ -1,0 +1,5 @@
+package global.sesoc.ajax.controller;
+
+public class SelfController {
+
+}
